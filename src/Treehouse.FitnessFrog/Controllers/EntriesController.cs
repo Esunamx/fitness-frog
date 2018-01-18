@@ -47,13 +47,6 @@ namespace Treehouse.FitnessFrog.Controllers
         [HttpPost]
         public ActionResult Add(DateTime? Date, int? ActivityId, double? Duration, Entry.IntensityLevel? Intensity, bool? Exclude, string Notes)
         {
-            ViewBag.Date = ModelState["Date"].Value.AttemptedValue;
-            ViewBag.activityID = ModelState["ActivityId"].Value.AttemptedValue;
-            ViewBag.duration = ModelState["Duration"].Value.AttemptedValue;
-            ViewBag.intensity = ModelState["Intensity"].Value.AttemptedValue;
-            ViewBag.exclude = ModelState["Exclude"].Value.AttemptedValue;
-            ViewBag.notes = ModelState["Notes"].Value.AttemptedValue;
-
             return View();
         }
 
