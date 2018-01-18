@@ -41,13 +41,24 @@ namespace Treehouse.FitnessFrog.Controllers
 
         public ActionResult Add()
         {
-            return View();
+            var entry = new Entry()
+            {
+                Date = DateTime.Today
+            };
+
+            return View(entry);
         }
 
         [HttpPost]
-        public ActionResult Add(DateTime? Date, int? ActivityId, double? Duration, Entry.IntensityLevel? Intensity, bool? Exclude, string Notes)
+        public ActionResult Add(Entry entry)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _entriesRepository.AddEntry(entry);
+
+                // TODO Display the Entries list page
+            }
+            return View(entry);
         }
 
         public ActionResult Edit(int? id)
